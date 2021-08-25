@@ -9,11 +9,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BoardDAO {
 
-	@Autowired
-	private SqlSessionTemplate sqlSession;
-	
-	
-	public int insertBoard() {
-		return 0;
-	}
+    @Autowired
+    private SqlSessionTemplate sqlSession;
+
+
+    public int insertBoard() {
+        return 0;
+    }
 }
