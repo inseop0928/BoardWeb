@@ -1,2 +1,2 @@
 # BoardWeb
-Spring
+Basic Spring
