@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
 
-    @RequestMapping(value = "login.do", method = RequestMethod.POST)
+    @RequestMapping(value = "login.do", method = RequestMethod.GET)
     public ModelAndView login(HttpServletRequest request,HttpServletResponse response) {
 
     	
@@ -25,7 +25,7 @@ public class LoginController {
 
     }
 
-    @RequestMapping(value = "logout.do", method = RequestMethod.POST)
+    @RequestMapping(value = "logout.do", method = RequestMethod.GET)
     public ModelAndView logOut(HttpServletRequest request,HttpServletResponse response) {
     	
     	HttpSession session = request.getSession();
