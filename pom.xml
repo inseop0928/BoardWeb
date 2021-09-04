@@ -116,13 +116,15 @@
             <version>4.7</version>
             <scope>test</scope>
         </dependency>
-
+		
+		<!-- sqlsession -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.5.7</version>
         </dependency>
 
+		<!-- SqlSessionFactoryBean -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
@@ -136,7 +138,13 @@
             <version>8.0.5</version>
         </dependency>
 
-
+		<!-- fileupload -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.4</version>
+		</dependency>
+		
     </dependencies>
     <build>
         <plugins>

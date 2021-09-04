@@ -1,5 +1,6 @@
 package com.board.controller;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.board.service.BoardService;
 import com.board.vo.BoardVO;
@@ -29,26 +31,23 @@ public class BoardController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     @RequestMapping(value = "/insertBoard.do")
-    public String insertBoard(HttpServletRequest request) {
+    public String insertBoard(BoardVO vo) {
 
 
         try {
-            request.setCharacterEncoding("UTF-8");
-            String title = request.getParameter("title");
-            String writer = request.getParameter("writer");
-            String content = request.getParameter("content");
-
-            BoardVO vo = new BoardVO();
-            vo.setTitle(title);
-            vo.setWriter(writer);
-            vo.setContent(content);
-            
+        	
+        	MultipartFile file = vo.getMultipartFile();
+        	
+        	if(!file.isEmpty()) {
+        		String fileName = file.getOriginalFilename();
+                file.transferTo(new File("D:/"+fileName));//파일을 destFile에 저장
+        	}
+        	 
         } catch (Exception e) {
             new Exception("저장 도중 에러가 발생했습니다.");
         }
-        return null;
+        return "selectBoardList.do";
     }
 
     @RequestMapping(value = "/updateBoard.do",method = RequestMethod.POST)
@@ -81,8 +80,8 @@ public class BoardController {
     }
     
 
-    @RequestMapping(value = "/getBoardList.do", method = RequestMethod.POST)
-    public String getBoardList(@RequestParam(value = "searchText", defaultValue = "", required = false) String searchText
+    @RequestMapping(value = "/selectBoardList.do", method = RequestMethod.POST)
+    public String selectBoardList(@RequestParam(value = "searchText", defaultValue = "", required = false) String searchText
             , Model model) {
 
 
