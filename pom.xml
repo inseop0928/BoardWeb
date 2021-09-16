@@ -9,7 +9,7 @@
     <version>1.0.0-BUILD-SNAPSHOT</version>
     <properties>
         <java-version>1.6</java-version>
-        <org.springframework-version>3.1.1.RELEASE</org.springframework-version>
+        <org.springframework-version>5.2.2.RELEASE</org.springframework-version>
         <org.aspectj-version>1.6.10</org.aspectj-version>
         <org.slf4j-version>1.6.6</org.slf4j-version>
     </properties>
@@ -32,7 +32,11 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-core</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
         <!-- AspectJ -->
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -110,13 +114,12 @@
         </dependency>
 
         <!-- Test -->
-        <dependency>
+          <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.7</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
-		
 		<!-- sqlsession -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -144,7 +147,57 @@
 		    <artifactId>commons-fileupload</artifactId>
 		    <version>1.4</version>
 		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework.batch</groupId>
+		    <artifactId>spring-batch-core</artifactId>
+		    <version>4.2.7.RELEASE</version>
+		</dependency>
 		
+		<dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-test</artifactId>
+            <version>4.2.7.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        
+         <!-- DB table과 Java간의 매핑을 가능케 해준다. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        
+         <!-- spring-orm은 인터페이스이고 hibernate은 구현체. -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.10.Final</version>
+        </dependency>
+        
+		<dependency>
+		    <groupId>org.hibernate.orm</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>6.0.0.Alpha9</version>
+		</dependency>
+		
+		<!-- 디비 관련 유틸리티 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>2.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
     </dependencies>
     <build>
         <plugins>
